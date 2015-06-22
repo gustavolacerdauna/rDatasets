@@ -4,8 +4,8 @@ parse.plsgenomics.leukemia <- function(){
   library(plsgenomics)
   data(leukemia)
 
-  X <- leukemia$X
-  Y <- leukemia$Y
+  X <- as.matrix(leukemia$X)
+  Y <- as.factor(leukemia$Y)
   data <- NULL
 
   ml.plsgenomics.leukemia <-

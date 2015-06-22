@@ -5,7 +5,7 @@ parse.leukemia.golub.train <- function(){
   data(leukemia.train)
 
   X <- as.matrix(leukemia.train[, -7130])
-  Y <- as.factor(leukemia.train[, 7130])
+  Y <- as.factor(leukemia.train[,  7130])
   data <- NULL
 
   ml.golub.leukemia.train <-
@@ -30,7 +30,7 @@ parse.leukemia.golub.test <- function(){
   data(leukemia.test)
 
   X <- as.matrix(leukemia.test[, -7130])
-  Y <- as.factor(leukemia.test[, 7130])
+  Y <- as.factor(leukemia.test[,  7130])
   data <- NULL
 
   ml.golub.leukemia.test <-
