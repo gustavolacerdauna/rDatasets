@@ -15,7 +15,10 @@ parse.iris <- function(){
               data <<- data.frame(X, Y)
             }
             data
-         })
+         },
+         name = "Iris")
+
+  class(ml.iris) <- append(class(ml.iris), "ml.dataset")
 
   save("ml.iris", file = file.path("data", "ml.iris.RData"))
 }
