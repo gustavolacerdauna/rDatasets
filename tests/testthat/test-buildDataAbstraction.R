@@ -6,6 +6,9 @@ test_that("buildDataAbstraction throws exception for bad input", {
   expect_that(buildDataAbstraction(list(), NULL, NULL),
               throws_error("name must have character class."))
 
+  expect_that(buildDataAbstraction(1, NULL, NULL),
+              throws_error("name must have character class."))
+
   expect_that(buildDataAbstraction(c("a", "b"), NULL, NULL),
               throws_error("name vector must have just one element."))
 
