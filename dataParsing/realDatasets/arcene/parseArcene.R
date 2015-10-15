@@ -1,27 +1,50 @@
 rm(list = ls())
 
+library(rDatasets)
+
 datasetPath <- file.path("dataParsing", "realDatasets",
                          "arcene", "rawData")
 
 arceneTrainData   <- read.table(file.path(datasetPath, "arcene_train.data.txt"))
 arceneTrainLabels <- read.table(file.path(datasetPath, "arcene_train.labels.txt"))
-arceneTestData    <- read.table(file.path(datasetPath, "arcene_valid.data.txt"))
-arceneTestLabels  <- read.table(file.path(datasetPath, "arcene_valid.labels.txt"))
+arceneTrainLabels <- arceneTrainLabels[, 1]
 
-is.nan.data.frame <- function(x)
-  do.call(cbind, lapply(x, is.nan))
+arceneTrain_ <- buildDataAbstraction(
+  name = "Arcene_Train",
+  data = arceneTrainData,
+  labels = arceneTrainLabels)
 
-arcene.train <- as.data.frame(scale(arcene.train.data))
-arcene.train[is.nan(arcene.train)] <- 0
-arcene.train$label <- as.factor(arcene.train.labels[,1])
+arceneValidData   <- read.table(file.path(datasetPath, "arcene_valid.data.txt"))
+arceneValidLabels <- read.table(file.path(datasetPath, "arcene_valid.labels.txt"))
+arceneValidLabels <- arceneValidLabels[, 1]
 
-arcene.test <- as.data.frame(scale(arcene.test.data))
-arcene.test$label <- as.factor(arcene.test.labels[,1])
+arceneValid_ <- buildDataAbstraction(
+  name = "Arcene_Valid",
+  data = arceneValidData,
+  labels = arceneValidLabels)
 
-rm(list =
-     c("arcene.train.data",
-     "arcene.train.labels",
-     "arcene.test.data",
-     "arcene.test.labels"))
+arceneMergedData = rbind(arceneTrainData,
+                         arceneValidData)
 
-save.image("arcene.RData")
+arceneMergedLabels = c(arceneTrainLabels,
+                       arceneValidLabels)
+
+arceneMerged_ <- buildDataAbstraction(
+  name = "Arcene_Merged",
+  data = arceneMergedData,
+  labels = arceneMergedLabels)
+
+savePath <- file.path(
+  "dataParsing", "realDatasets", "arcene")
+
+save(arceneTrain_,
+     file = file.path(
+       savePath, "arceneTrain_.RData"))
+
+save(arceneValid_,
+     file = file.path(
+       savePath, "arceneValid_.RData"))
+
+save(arceneMerged_,
+     file = file.path(
+       savePath, "arceneMerged_.RData"))
