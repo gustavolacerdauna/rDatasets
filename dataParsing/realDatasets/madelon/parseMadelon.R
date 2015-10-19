@@ -6,6 +6,7 @@ datasetPath <- file.path("dataParsing", "realDatasets",
                          "madelon", "rawData")
 
 madelonTrainData   <- read.table(file.path(datasetPath, "madelon_train.data.txt"))
+madelonTrainData <- apply(madelonTrainData, 2, as.numeric)
 madelonTrainLabels <- read.table(file.path(datasetPath, "madelon_train.labels.txt"))
 madelonTrainLabels <- madelonTrainLabels[, 1]
 
@@ -15,6 +16,7 @@ madelonTrain_ <- buildDataAbstraction(
   labels = madelonTrainLabels)
 
 madelonValidData   <- read.table(file.path(datasetPath, "madelon_valid.data.txt"))
+madelonValidData <- apply(madelonValidData, 2, as.numeric)
 madelonValidLabels <- read.table(file.path(datasetPath, "madelon_valid.labels.txt"))
 madelonValidLabels <- madelonValidLabels[, 1]
 
