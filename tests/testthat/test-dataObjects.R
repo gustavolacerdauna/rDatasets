@@ -5,24 +5,30 @@ test_that("data objects are formatted correctly", {
 
   library(randomForest)
 
-  dataFileNames <- list.files(path = "data")
+  dataPath <- "../../data"
+
+  dataFileNames <- list.files(path = dataPath)
 
   for (dataObjectName in dataFileNames) {
-    load(file.path("data", dataObjectName))
+    load(file.path(dataPath, dataObjectName))
   }
 
   dataObjectNames <- ls(pattern = "*_")
   datasets_ <- list()
   e <- environment()
 
+  expect_true(length(dataObjectNames) == length(dataFileNames))
+
   for (dataObjectName in dataObjectNames) {
     evalExpression("dataObject <- e[[dataObjectName]]; datasets_[[dataObjectName]] <- dataObject")
   }
 
+  cat("\n")
+
   accuracies <-
     sapply(datasets_,
            function (d) {
-             print(paste("predicting over", d$name))
+             cat("predicting over", d$name, "\n")
 
              train <- sample(nrow(d$X), 0.7*nrow(d$X))
 
@@ -32,5 +38,5 @@ test_that("data objects are formatted correctly", {
              return(mean(pred == d$Y[-train]))
            })
 
-  expect_true(is.numeric(accs))
+  expect_true(is.numeric(accuracies))
 })

@@ -28,5 +28,5 @@ steelPlatesFaults_ <- buildDataAbstraction(
   data = steelData,
   labels = classVector)
 
-save(arceneTrain_,
+save(steelPlatesFaults_,
      file = file.path(datasetPath, "steelPlatesFaults_.RData"))
