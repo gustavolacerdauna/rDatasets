@@ -6,6 +6,7 @@ datasetPath <- file.path("dataParsing", "realDatasets",
                          "arcene", "rawData")
 
 arceneTrainData   <- read.table(file.path(datasetPath, "arcene_train.data.txt"))
+arceneTrainData <- apply(arceneTrainData, 2, as.numeric)
 arceneTrainLabels <- read.table(file.path(datasetPath, "arcene_train.labels.txt"))
 arceneTrainLabels <- arceneTrainLabels[, 1]
 
@@ -15,6 +16,7 @@ arceneTrain_ <- buildDataAbstraction(
   labels = arceneTrainLabels)
 
 arceneValidData   <- read.table(file.path(datasetPath, "arcene_valid.data.txt"))
+arceneValidData <- apply(arceneValidData, 2, as.numeric)
 arceneValidLabels <- read.table(file.path(datasetPath, "arcene_valid.labels.txt"))
 arceneValidLabels <- arceneValidLabels[, 1]
 
