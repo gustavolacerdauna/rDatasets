@@ -17,8 +17,8 @@ colnames(waveformData) <- c(paste("F", 1:50, sep = ""), "class")
 
 waveform_ <- buildDataAbstraction(
   name = "Waveform",
-  data = waveformData[, -11],
-  labels = waveformData[, 11])
+  data = waveformData[, -51],
+  labels = waveformData[, 51])
 
 save(waveform_,
      file = file.path(

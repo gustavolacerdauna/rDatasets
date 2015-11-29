@@ -5,7 +5,7 @@ library(mlbench)
 
 datasetPath <- file.path("dataParsing", "syntheticDatasets", "spirals")
 
-mlBenchSpirals <- mlbench.spirals(1000, cycles = 4, sd=0)
+mlBenchSpirals <- mlbench.spirals(1000, cycles = 2, sd=0)
 plot(mlBenchSpirals)
 
 spiralsData <- as.data.frame(mlBenchSpirals)
