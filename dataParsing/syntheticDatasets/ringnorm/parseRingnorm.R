@@ -5,7 +5,7 @@ library(mlbench)
 
 datasetPath <- file.path("dataParsing", "syntheticDatasets", "ringnorm")
 
-mlBenchRingnorm <- p<-mlbench.ringnorm(1000, d=2)
+mlBenchRingnorm <- mlbench.ringnorm(1000, d=2)
 plot(mlBenchRingnorm)
 
 ringnormData <- as.data.frame(mlBenchRingnorm)
