@@ -5,8 +5,8 @@ library(mlbench)
 
 datasetPath <- file.path("dataParsing", "syntheticDatasets", "cassini")
 
-mlBenchXor <- mlbench.cassini(5000, relsize = c(4.5,4.5,1))
-cassiniData <- as.data.frame(mlBenchXor)
+mlBenchCassini <- mlbench.cassini(5000, relsize = c(4.5,4.5,1))
+cassiniData <- as.data.frame(mlBenchCassini)
 
 cassiniData <- data.frame(cassiniData[,1:2],
                           sapply(1:8, function(i) runif(5000)),
