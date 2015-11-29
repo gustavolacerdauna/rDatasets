@@ -13,7 +13,7 @@ BreastCancer <- predict(bcBagImputation, BreastCancer)
 BreastCancer[,-11] <- apply(BreastCancer[,-11], 2, round)
 
 breastCancer_ <- buildDataAbstraction(
-  name = "mlbench_BreastCancer",
+  name = "BreastCancer",
   data = BreastCancer[,-11],
   labels = BreastCancer[,11])
 
