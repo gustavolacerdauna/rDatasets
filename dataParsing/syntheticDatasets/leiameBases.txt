@@ -1,9 +1,0 @@
-Base gauss3
-Features 1 e 2 são as importantes
-
-Base 2moonsB
-Features 1 e 2 são as importantes e features 6 e 7 são redundantes com a 1 e 2 respectivamente
-
-
-Base Pcirc2bA
-Features 1 e 2 são as importantes e features 9 e 10 são redundantes com a 1 e 2 respectivamente
