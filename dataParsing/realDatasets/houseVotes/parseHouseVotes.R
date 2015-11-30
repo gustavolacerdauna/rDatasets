@@ -6,12 +6,16 @@ library(mlbench)
 data(HouseVotes84)
 classColumn <- 1
 
+HouseVotes84[, classColumn] <- as.factor(HouseVotes84[, classColumn])
+
 HouseVotes84 <- apply(
   HouseVotes84, 1:2,
   function (element) {
     if (is.na(element)) return("NA")
     else return(element)
   })
+
+HouseVotes84 <- as.data.frame(HouseVotes84)
 
 HouseVotes84[,-classColumn] <- apply(
   HouseVotes84[,-classColumn], 2,
