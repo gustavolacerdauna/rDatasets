@@ -5,11 +5,13 @@ library(mlbench)
 
 datasetPath <- file.path("dataParsing", "syntheticDatasets", "cassini")
 
-mlBenchCassini <- mlbench.cassini(5000, relsize = c(4.5,4.5,1))
+mlBenchCassini <- mlbench.cassini(1000, relsize = c(4.5,4.5,1))
+plot(mlBenchCassini)
+
 cassiniData <- as.data.frame(mlBenchCassini)
 
 cassiniData <- data.frame(cassiniData[,1:2],
-                          sapply(1:8, function(i) runif(5000)),
+                          sapply(1:8, function(i) runif(1000)),
                           cassiniData[,3])
 colnames(cassiniData) <- c(paste("F", 1:10, sep = ""), "class")
 

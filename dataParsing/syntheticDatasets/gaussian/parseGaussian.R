@@ -17,7 +17,7 @@ colnames(gaussianData) <- c(paste("F", 1:10, sep = ""), "class")
 
 
 gaussian_ <- buildDataAbstraction(
-  name = "gaussian",
+  name = "Gaussian",
   data = gaussianData[, -11],
   labels = gaussianData[, 11])
 

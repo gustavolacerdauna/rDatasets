@@ -17,7 +17,7 @@ colnames(ringnormData) <- c(paste("F", 1:10, sep = ""), "class")
 
 
 ringnorm_ <- buildDataAbstraction(
-  name = "Ringnorm",
+  name = "Ring_Norm",
   data = ringnormData[, -11],
   labels = ringnormData[, 11])
 

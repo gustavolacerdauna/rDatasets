@@ -17,7 +17,7 @@ colnames(threeNormData) <- c(paste("F", 1:10, sep = ""), "class")
 
 
 threeNorm_ <- buildDataAbstraction(
-  name = "ThreeNorm",
+  name = "Three_Norm",
   data = threeNormData[, -11],
   labels = threeNormData[, 11])
 

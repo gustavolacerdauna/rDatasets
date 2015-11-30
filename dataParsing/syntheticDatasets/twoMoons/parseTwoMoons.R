@@ -10,7 +10,7 @@ twoMoons <- readMat(file.path(datasetPath, "twoMoons.mat"))
 colnames(twoMoons$Xo) <- paste("F", 1:7, sep = "")
 
 twoMoons_ <- buildDataAbstraction(
-  name = "twoMoons",
+  name = "Two_Moons",
   data = twoMoons$Xo,
   labels = twoMoons$Yo[,1])
 
