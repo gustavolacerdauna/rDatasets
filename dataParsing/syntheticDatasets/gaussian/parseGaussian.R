@@ -5,7 +5,9 @@ library(mlbench)
 
 datasetPath <- file.path("dataParsing", "syntheticDatasets", "gaussian")
 
-mlBenchgaussian <- mlbench.gaussian(1000)
+mlBenchgaussian <- mlbench.2dnormals(1000)
+plot(mlBenchgaussian)
+
 gaussianData <- as.data.frame(mlBenchgaussian)
 
 gaussianData <- data.frame(gaussianData[,1:2],
